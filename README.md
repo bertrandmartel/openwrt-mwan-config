@@ -1,6 +1,6 @@
 # OpenWrt mutli-wan configuration
 
-An example of an OpenWrt powered multi wan working configuration on a TP-Link Archer C7 v2 router
+An example of an OpenWrt multi wan working configuration on a TP-Link Archer C7 v2 router
 
 ## Architecture
 
