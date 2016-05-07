@@ -1,0 +1,65 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fdbb:df87:bb45::/48'
+
+config interface 'lan'
+	option ifname 'eth1'
+	option proto 'static'
+	option force_link '1'
+	option type 'bridge'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+
+config interface 'wan'
+	option ifname 'eth0'
+	option proto 'dhcp'
+	option metric '10'
+
+config switch
+	option name 'switch0'
+	option reset '1'
+	option enable_vlan '1'
+	option mirror_source_port '0'
+	option mirror_monitor_port '0'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '1'
+	option vid '1'
+	option ports '0 2 3'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '2'
+	option ports '1 6'
+	option vid '2'
+
+config interface 'wan2'
+	option proto 'dhcp'
+	option metric '20'
+	option ifname 'eth0.3'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '3'
+	option vid '3'
+	option ports '0t 5 6t'
+
+config switch_vlan
+	option device 'switch0'
+	option vlan '4'
+	option vid '4'
+	option ports '0t 4 6t'
+
+config interface 'wan3'
+	option proto 'dhcp'
+	option ifname 'eth0.4'
+	option metric '30'
+

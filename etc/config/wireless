@@ -1,0 +1,36 @@
+
+config wifi-device 'radio0'
+	option type 'mac80211'
+	option hwmode '11a'
+	option path 'pci0000:01/0000:01:00.0'
+	option country 'US'
+	option txpower '17'
+	option channel 'auto'
+	option htmode 'VHT80'
+
+config wifi-device 'radio1'
+	option type 'mac80211'
+	option channel '11'
+	option hwmode '11g'
+	option path 'platform/qca955x_wmac'
+	option htmode 'HT20'
+	option txpower '24'
+	option country 'US'
+
+config wifi-iface
+	option device 'radio1'
+	option network 'lan'
+	option mode 'ap'
+	option ssid 'OpenWrt-mwan-2.4Ghz'
+	option encryption 'psk2'
+	option key 'password'
+
+config wifi-iface
+	option device 'radio0'
+	option mode 'ap'
+	option ssid 'OpenWrt-mwan-5.0Ghz'
+	option network 'lan'
+	option encryption 'psk2'
+	option key 'password'
+	option disabled '1'
+
